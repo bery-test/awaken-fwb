@@ -30,6 +30,8 @@ LOCAL_REQUIRED_MODULES := \
     IconPackVictorSettingsOverlay \
     IconPackVictorSystemUIOverlay \
     IconPackVictorThemePickerOverlay \
+    IconPackOOSAndroidOverlay \
+    IconPackOOSSystemUIOverlay \
     IconPackSamAndroidOverlay \
     IconPackSamLauncherOverlay \
     IconPackSamSettingsOverlay \

@@ -31,7 +31,12 @@ LOCAL_REQUIRED_MODULES := \
     IconPackVictorSystemUIOverlay \
     IconPackVictorThemePickerOverlay \
     IconPackOOSAndroidOverlay \
+    IconPackOOSLauncherOverlay \
+    IconPackOOSSettingsOverlay \
     IconPackOOSSystemUIOverlay \
+    IconPackOOSLauncherOverlay \
+    IconPackOOSSettingsOverlay \
+    IconPackOOSThemePickerOverlay \
     IconPackSamAndroidOverlay \
     IconPackSamLauncherOverlay \
     IconPackSamSettingsOverlay \
@@ -64,6 +69,13 @@ LOCAL_REQUIRED_MODULES := \
     NavigationBarModeGesturalOverlayExtraWideBack \
     TransparentNavigationBarOverlay \
     NotesRoleEnabledOverlay \
+    preinstalled-packages-platform-overlays.xml
+    IconPackOOSThemePickerOverlay \
+    NavigationBarMode3ButtonOverlay \
+    NavigationBarModeGesturalOverlay \
+    NavigationBarModeGesturalOverlayNarrowBack \
+    NavigationBarModeGesturalOverlayWideBack \
+    NavigationBarModeGesturalOverlayExtraWideBack \
     preinstalled-packages-platform-overlays.xml
 
 include $(BUILD_PHONY_PACKAGE)

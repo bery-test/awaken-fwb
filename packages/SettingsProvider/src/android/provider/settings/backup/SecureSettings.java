@@ -233,5 +233,6 @@ public class SecureSettings {
         Settings.Secure.IGNORE_AUTH_CONFIRMATION,
         Settings.Secure.STATUS_BAR_CLOCK_POSITION,
         Settings.Secure.POWER_MENU_HIDE_ON_SECURE,
+        Settings.Secure.SHOW_WIFI_STANDARD_ICON,
     };
 }

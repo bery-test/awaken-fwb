@@ -31,8 +31,6 @@ LOCAL_REQUIRED_MODULES := \
     IconPackVictorSystemUIOverlay \
     IconPackVictorThemePickerOverlay \
     IconPackOOSAndroidOverlay \
-    IconPackOOSLauncherOverlay \
-    IconPackOOSSettingsOverlay \
     IconPackOOSSystemUIOverlay \
     IconPackOOSLauncherOverlay \
     IconPackOOSSettingsOverlay \
@@ -62,13 +60,6 @@ LOCAL_REQUIRED_MODULES := \
     IconShapeSquareOverlay \
     IconShapeSquircleOverlay \
     IconShapeTeardropOverlay \
-    NavigationBarMode3ButtonOverlay \
-    NavigationBarModeGesturalOverlay \
-    NavigationBarModeGesturalOverlayNarrowBack \
-    NavigationBarModeGesturalOverlayWideBack \
-    NavigationBarModeGesturalOverlayExtraWideBack \
-    preinstalled-packages-platform-overlays.xml
-    IconPackOOSThemePickerOverlay \
     NavigationBarMode3ButtonOverlay \
     NavigationBarModeGesturalOverlay \
     NavigationBarModeGesturalOverlayNarrowBack \

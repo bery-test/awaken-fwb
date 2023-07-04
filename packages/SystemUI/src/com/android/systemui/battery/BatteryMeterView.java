@@ -47,6 +47,8 @@ import androidx.annotation.VisibleForTesting;
 import com.android.settingslib.Utils;
 import com.android.settingslib.graph.CircleBatteryDrawable;
 import com.android.settingslib.graph.FullCircleBatteryDrawable;
+import com.android.settingslib.graph.LandscapeBatteryDrawableiOS15;
+import com.android.settingslib.graph.LandscapeBatteryDrawableiOS16;
 import com.android.systemui.DualToneHandler;
 import com.android.systemui.R;
 import com.android.systemui.animation.Interpolators;
@@ -75,6 +77,8 @@ public class BatteryMeterView extends LinearLayout implements DarkReceiver {
     public static final int BATTERY_STYLE_FULL_CIRCLE = 3;
     public static final int BATTERY_STYLE_TEXT = 4; /*hidden icon*/
     public static final int BATTERY_STYLE_HIDDEN = 5;
+    public static final int BATTERY_STYLE_LANDSCAPE_IOS15 = 6;
+    public static final int BATTERY_STYLE_LANDSCAPE_IOS16 = 7;
 
     public static final int BATTERY_PERCENT_HIDDEN = 0;
     public static final int BATTERY_PERCENT_SHOW_INSIDE = 1;
@@ -83,6 +87,8 @@ public class BatteryMeterView extends LinearLayout implements DarkReceiver {
     private final AccessorizedBatteryDrawable mAccessorizedDrawable;
     private final CircleBatteryDrawable mCircleDrawable;
     private final FullCircleBatteryDrawable mFullCircleDrawable;
+    private final LandscapeBatteryDrawableiOS15 mLandscapeDrawableiOS15;
+    private final LandscapeBatteryDrawableiOS16 mLandscapeDrawableiOS16;
     private final ImageView mBatteryIconView;
     private TextView mBatteryPercentView;
 
@@ -133,6 +139,8 @@ public class BatteryMeterView extends LinearLayout implements DarkReceiver {
         mAccessorizedDrawable = new AccessorizedBatteryDrawable(context, frameColor);
         mCircleDrawable = new CircleBatteryDrawable(context, frameColor);
         mFullCircleDrawable = new FullCircleBatteryDrawable(context, frameColor);
+        mLandscapeDrawableiOS15 = new LandscapeBatteryDrawableiOS15(context, frameColor);
+        mLandscapeDrawableiOS16 = new LandscapeBatteryDrawableiOS16(context, frameColor);
         atts.recycle();
 
         setupLayoutTransition();
@@ -261,12 +269,16 @@ public class BatteryMeterView extends LinearLayout implements DarkReceiver {
             mAccessorizedDrawable.setBatteryLevel(mLevel);
             mCircleDrawable.setBatteryLevel(mLevel);
             mFullCircleDrawable.setBatteryLevel(mLevel);
+            mLandscapeDrawableiOS15.setBatteryLevel(mLevel);
+            mLandscapeDrawableiOS16.setBatteryLevel(mLevel);
         }
         if (mCharging != pluggedIn) {
             mCharging = pluggedIn;
             mAccessorizedDrawable.setCharging(mCharging);
             mCircleDrawable.setCharging(mCharging);
             mFullCircleDrawable.setCharging(mCharging);
+            mLandscapeDrawableiOS15.setCharging(mCharging);
+            mLandscapeDrawableiOS16.setCharging(mCharging);
             updateShowPercent();
         } else {
             updatePercentText();
@@ -277,6 +289,8 @@ public class BatteryMeterView extends LinearLayout implements DarkReceiver {
         mAccessorizedDrawable.setPowerSaveEnabled(isPowerSave);
         mCircleDrawable.setPowerSaveEnabled(isPowerSave);
         mFullCircleDrawable.setPowerSaveEnabled(isPowerSave);
+        mLandscapeDrawableiOS15.setPowerSaveEnabled(isPowerSave);
+        mLandscapeDrawableiOS16.setPowerSaveEnabled(isPowerSave);
         mPowerSaveEnabled = isPowerSave;
         updateShowPercent();
     }
@@ -452,6 +466,8 @@ public class BatteryMeterView extends LinearLayout implements DarkReceiver {
             mAccessorizedDrawable.setShowPercent(drawPercentInside);
             mCircleDrawable.setShowPercent(drawPercentInside);
             mFullCircleDrawable.setShowPercent(drawPercentInside);
+            mLandscapeDrawableiOS15.setShowPercent(drawPercentInside);
+            mLandscapeDrawableiOS16.setShowPercent(drawPercentInside);
         }
         updatePercentText();
     }
@@ -519,6 +535,11 @@ public class BatteryMeterView extends LinearLayout implements DarkReceiver {
 
         int batteryHeight = res.getDimensionPixelSize(R.dimen.status_bar_battery_icon_height);
         int batteryWidth = res.getDimensionPixelSize(R.dimen.status_bar_battery_icon_width);
+        batteryHeight = mBatteryStyle == BATTERY_STYLE_LANDSCAPE_IOS15 ?
+                res.getDimensionPixelSize(R.dimen.status_bar_battery_icon_height_landscape_ios15) : batteryHeight;
+        batteryHeight = mBatteryStyle == BATTERY_STYLE_LANDSCAPE_IOS16 ?
+                res.getDimensionPixelSize(R.dimen.status_bar_battery_icon_height_landscape_ios16) : batteryHeight;
+ 
 
         float mainBatteryHeight = mBatteryStyle == BATTERY_STYLE_CIRCLE || mBatteryStyle == BATTERY_STYLE_DOTTED_CIRCLE
                 || mBatteryStyle == BATTERY_STYLE_FULL_CIRCLE ?
@@ -528,6 +549,12 @@ public class BatteryMeterView extends LinearLayout implements DarkReceiver {
                 || mBatteryStyle == BATTERY_STYLE_FULL_CIRCLE ?
                 res.getDimensionPixelSize(R.dimen.status_bar_battery_icon_circle_width) :
                 res.getDimensionPixelSize(R.dimen.status_bar_battery_icon_width) * iconScaleFactor;
+                res.getDimensionPixelSize(R.dimen.status_bar_battery_icon_width_landscape_buddy) : batteryWidth;
+         batteryWidth = mBatteryStyle == BATTERY_STYLE_LANDSCAPE_IOS15 ?
+                res.getDimensionPixelSize(R.dimen.status_bar_battery_icon_width_landscape_ios15) : batteryWidth;
+         batteryWidth = mBatteryStyle == BATTERY_STYLE_LANDSCAPE_IOS16 ?
+                res.getDimensionPixelSize(R.dimen.status_bar_battery_icon_width_landscape_ios16) : batteryWidth;  
+
 
         // If the battery is marked as overheated, we should display a shield indicating that the
         // battery is being "defended".
@@ -572,6 +599,16 @@ public class BatteryMeterView extends LinearLayout implements DarkReceiver {
             case BATTERY_STYLE_PORTRAIT:
             mBatteryIconView.setImageDrawable(mAccessorizedDrawable);
             break;
+            case BATTERY_STYLE_LANDSCAPE_IOS15:
+            mBatteryIconView.setImageDrawable(mLandscapeDrawableiOS15);
+            mBatteryIconView.setVisibility(View.VISIBLE);
+            scaleBatteryMeterViews();
+            break;
+            case BATTERY_STYLE_LANDSCAPE_IOS16:
+            mBatteryIconView.setImageDrawable(mLandscapeDrawableiOS16);
+            mBatteryIconView.setVisibility(View.VISIBLE);
+            scaleBatteryMeterViews();
+            break;
             case BATTERY_STYLE_FULL_CIRCLE:
             mBatteryIconView.setImageDrawable(mFullCircleDrawable);
             break;
@@ -604,6 +641,8 @@ public class BatteryMeterView extends LinearLayout implements DarkReceiver {
     public void updateColors(int foregroundColor, int backgroundColor, int singleToneColor) {
         mAccessorizedDrawable.setColors(foregroundColor, backgroundColor, singleToneColor);
         mCircleDrawable.setColors(foregroundColor, backgroundColor, singleToneColor);
+        mLandscapeDrawableiOS15.setColors(foregroundColor, backgroundColor, singleToneColor);
+        mLandscapeDrawableiOS16.setColors(foregroundColor, backgroundColor, singleToneColor);
         mFullCircleDrawable.setColors(foregroundColor, backgroundColor, singleToneColor);
         mTextColor = singleToneColor;
         updatePercentTextColor();
@@ -652,4 +691,3 @@ public class BatteryMeterView extends LinearLayout implements DarkReceiver {
         mCallbacks.remove(callbacks);
     }
 }
-

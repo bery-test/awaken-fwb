@@ -4247,7 +4247,8 @@ public class CentralSurfacesImpl implements CoreStartable, CentralSurfaces {
     public boolean isKeyguardSecure() {
         return mStatusBarKeyguardViewManager.isSecure();
     }
-
+    
+    @Override
     public GameSpaceManager getGameSpaceManager() {
         return mGameSpaceManager;
     }

@@ -66,11 +66,8 @@ import com.android.systemui.statusbar.pipeline.wifi.ui.WifiUiAdapter;
 import com.android.systemui.statusbar.pipeline.wifi.ui.view.ModernStatusBarWifiView;
 import com.android.systemui.statusbar.pipeline.wifi.ui.viewmodel.LocationBasedWifiViewModel;
 import com.android.systemui.util.Assert;
-<<<<<<< HEAD
 import com.android.systemui.statusbar.policy.NetworkTrafficSB;
-=======
 import com.android.systemui.tuner.TunerService;
->>>>>>> 62281d5fcb62 (base: Import Wi-Fi standard icon [1/2])
 
 import java.util.ArrayList;
 import java.util.List;

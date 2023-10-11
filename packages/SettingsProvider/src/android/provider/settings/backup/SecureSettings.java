@@ -232,7 +232,6 @@ public class SecureSettings {
         Settings.Secure.GESTURE_NAVBAR_LENGTH_MODE,
         Settings.Secure.IGNORE_AUTH_CONFIRMATION,
         Settings.Secure.STATUS_BAR_CLOCK_POSITION,
-        Settings.Secure.SHOW_WIFI_STANDARD_ICON,
         Settings.Secure.POWER_MENU_HIDE_ON_SECURE,
     };
 }

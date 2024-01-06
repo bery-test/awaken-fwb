@@ -27,6 +27,9 @@
     <!-- AOD QS tile -->
     <string name="quick_settings_aod_label">AOD</string>
     <string name="quick_settings_aod_off_powersave_label">AOD desligado\nEconomia de bateria</string>
+    <!-- Bluetooth dialog -->
+    <string name="bluetooth_is_off">Bluetooth desativado</string>
+    <string name="tap_a_device_to_connect">Toque para conectar ou desconectar um dispositivo</string>
     <!-- Caffeine QS tile -->
     <string name="quick_settings_caffeine_label">Cafeína</string>
     <string name="accessibility_quick_settings_caffeine_off">Cafeína desligada.</string>
@@ -57,6 +60,8 @@
     <string name="usage_data">usado hoje</string>
     <string name="usage_data_default_suffix">Dados</string>
     <string name="usage_wifi_default_suffix">WiFi</string>
+    <!-- DC Dimming -->
+    <string name="quick_settings_dc_dimming_label">Modo anti cintilação</string>
     <!-- Face Unlock -->
     <string name="face_unlock_recognizing">Reconhecendo rosto...</string>
     <!-- Heads up QS tile -->
@@ -76,6 +81,11 @@
     <string name="quick_settings_monotoggle_tile">Modo de áudio</string>
     <string name="quick_settings_monotoggle_tile_mono">Áudio mono</string>
     <string name="quick_settings_monotoggle_tile_stereo">Áudio estéreo</string>
+    <!-- QuickSettings: InternetDialog: Summary for how many devices are connected to the hotspot [CHAR LIMIT=NONE] -->
+    <plurals name="quick_settings_internet_hotspot_summary_num_devices">
+        <item quantity="one">%d dispositivo conectado</item>
+        <item quantity="other">%d dispositivos conectados</item>
+    </plurals>
     <!-- Screenshot Delete Toast -->
     <string name="delete_screenshot_toast">Captura de tela excluída</string>
     <!-- Screenshot QS tile -->

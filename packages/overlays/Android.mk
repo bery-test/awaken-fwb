@@ -60,6 +60,7 @@ LOCAL_REQUIRED_MODULES := \
     IconShapeSquareOverlay \
     IconShapeSquircleOverlay \
     IconShapeTeardropOverlay \
+    IconShapeIosOverlay \
     NavigationBarMode3ButtonOverlay \
     NavigationBarModeGesturalOverlay \
     NavigationBarModeGesturalOverlayNarrowBack \

@@ -248,7 +248,6 @@ java_library {
         "com.android.sysprop.localization",
         "PlatformProperties",
         "vendor.lineage.touch-V1.0-java",
-        "vendor.lineage.health-V1-java",
         "SurfaceFlingerProperties",
     ],
     sdk_version: "core_platform",

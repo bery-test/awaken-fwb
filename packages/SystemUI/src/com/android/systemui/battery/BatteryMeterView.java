@@ -535,9 +535,9 @@ public class BatteryMeterView extends LinearLayout implements DarkReceiver {
 
         int batteryHeight = res.getDimensionPixelSize(R.dimen.status_bar_battery_icon_height);
         int batteryWidth = res.getDimensionPixelSize(R.dimen.status_bar_battery_icon_width);
-        batteryHeight = mBatteryStyle == BATTERY_STYLE_LANDSCAPE_IOS15 ?
+        int batteryHeight = mBatteryStyle == BATTERY_STYLE_LANDSCAPE_IOS15 ?
                 res.getDimensionPixelSize(R.dimen.status_bar_battery_icon_height_landscape_ios15) : batteryHeight;
-        batteryHeight = mBatteryStyle == BATTERY_STYLE_LANDSCAPE_IOS16 ?
+        int batteryHeight = mBatteryStyle == BATTERY_STYLE_LANDSCAPE_IOS16 ?
                 res.getDimensionPixelSize(R.dimen.status_bar_battery_icon_height_landscape_ios16) : batteryHeight;
  
 
